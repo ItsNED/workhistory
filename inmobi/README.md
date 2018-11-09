@@ -1,3 +1,3 @@
 # WorkManager
 
-Manager work history.
+Manage work history.
