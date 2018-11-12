@@ -5,6 +5,8 @@ from inmobi.users import models as user_models
 
 class App(devices_models.TimeStampedModel):
 
+    ''' App Model '''
+
     app_title = models.CharField(max_length=100)
     app_title_eng = models.CharField(max_length=100, blank=True)
     creator = models.ForeignKey(user_models.User, on_delete=models.PROTECT, null=True)
@@ -14,6 +16,8 @@ class App(devices_models.TimeStampedModel):
 
 
 class Content(devices_models.TimeStampedModel):
+
+    ''' Content Model '''
 
     OS_CHOICES = (
         ('ios', 'iOS'),
@@ -35,6 +39,9 @@ class Content(devices_models.TimeStampedModel):
 
 
 class Result(devices_models.TimeStampedModel):
+
+    ''' Result Model '''
+
     owner = models.ForeignKey(Content, on_delete=models.PROTECT, null=True)
     result_msg = models.TextField(blank=True)
 

@@ -11,6 +11,8 @@ class TimeStampedModel(models.Model):
 
 class Device(TimeStampedModel):
 
+    ''' Device Model '''
+
     OS_CHOICES = (
         ('ios', 'iOS'),
         ('aos', 'AOS')
@@ -29,6 +31,9 @@ class Device(TimeStampedModel):
 
 
 class DeviceAdId(TimeStampedModel):
+
+    ''' DeviceAdId Model '''
+
     device = models.ForeignKey(Device, on_delete=models.PROTECT, null=True)
     adid = models.CharField(max_length=50, null=False)
 
