@@ -22,6 +22,7 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
     path("test/", include("oneonone.urls", namespace="test")),
+    path("devices/", include("devices.urls", namespace="devices")),
 ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
 )
