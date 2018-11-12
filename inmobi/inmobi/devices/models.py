@@ -1,8 +1,15 @@
 from django.db import models
-from ..oneonone import models as oneonone_models
 
 
-class Device(oneonone_models.TimeStampedModel):
+class TimeStampedModel(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        abstract = True
+
+
+class Device(TimeStampedModel):
 
     OS_CHOICES = (
         ('ios', 'iOS'),
@@ -21,8 +28,8 @@ class Device(oneonone_models.TimeStampedModel):
         return '{}의 {}'.format(self.owner, self.device_name)
 
 
-class DeviceAdId(oneonone_models.TimeStampedModel):
-    device = models.ForeignKey(Device, on_delete=models.PROTECT)
+class DeviceAdId(TimeStampedModel):
+    device = models.ForeignKey(Device, on_delete=models.PROTECT, null=True)
     adid = models.CharField(max_length=50, null=False)
 
     def __str__(self):
