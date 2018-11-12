@@ -1,16 +1,17 @@
 from rest_framework import serializers
-from . import models
-
+from .models import Device, DeviceAdId
 
 class DeviceSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = models.Device
+        model = Device
         fields = "__all__"
 
 
 class DeviceAdIdSerializer(serializers.ModelSerializer):
 
+    device = DeviceSerializer()
+
     class Meta:
-        model = models.DeviceAdId
+        model = DeviceAdId
         fields = "__all__"

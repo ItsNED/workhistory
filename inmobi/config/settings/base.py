@@ -72,7 +72,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     'inmobi.users.apps.UsersAppConfig',
     # Your stuff: custom apps go here
-    'inmobi.oneonone.apps.OneononeConfig', # 1:1 test result app
+    'inmobi.oneonone.apps.OneononeConfig',  # 1:1 test result app
     'inmobi.devices.apps.DevicesConfig',    # devices
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
