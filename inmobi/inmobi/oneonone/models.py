@@ -24,7 +24,7 @@ class Content(devices_models.TimeStampedModel):
         ('aos', 'AOS')
     )
 
-    owner = models.ForeignKey(App, on_delete=models.PROTECT, null=True)
+    owner = models.ForeignKey(App, on_delete=models.PROTECT, null=True, related_name="content")
     store_url = models.TextField(null=True, blank=True)
     os = models.CharField(max_length=20, choices=OS_CHOICES, null=True)
     events = models.TextField(blank=True)
@@ -42,7 +42,7 @@ class Result(devices_models.TimeStampedModel):
 
     ''' Result Model '''
 
-    owner = models.ForeignKey(Content, on_delete=models.PROTECT, null=True)
+    owner = models.ForeignKey(Content, on_delete=models.PROTECT, null=True, related_name="result")
     result_msg = models.TextField(blank=True)
 
     def __str__(self):

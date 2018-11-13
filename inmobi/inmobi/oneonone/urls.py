@@ -1,8 +1,10 @@
 from django.urls import path
-from . import views
+from inmobi.oneonone.views import (
+    ListAllApps,
+    )
 
 app_name = "oneonone"
 
 urlpatterns = [
-    path('', views.test, name="test")
+    path('all/', ListAllApps.as_view(), name="all_apps")
 ]
