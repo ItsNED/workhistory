@@ -33,7 +33,7 @@ class DeviceAdId(TimeStampedModel):
 
     ''' DeviceAdId Model '''
 
-    device = models.ForeignKey(Device, on_delete=models.PROTECT, null=True)
+    device = models.ForeignKey(Device, on_delete=models.PROTECT, null=True, related_name="adids")
     adid = models.CharField(max_length=50, null=False)
 
     def __str__(self):
