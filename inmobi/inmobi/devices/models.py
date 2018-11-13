@@ -24,7 +24,7 @@ class Device(TimeStampedModel):
     model_name = models.CharField(max_length=200)
     os = models.CharField(max_length=30, choices=OS_CHOICES)
     os_version = models.CharField(max_length=50)
-    phone_number = models.CharField(max_length=50)
+    phone_number = models.CharField(max_length=50, null=True, blank=True)
 
     def __str__(self):
         return '{}의 {}'.format(self.owner, self.device_name)
