@@ -20,10 +20,9 @@ class Device(TimeStampedModel):
 
     owner = models.CharField(max_length=100)
     device_name = models.CharField(max_length=50)
-    owner = models.CharField(max_length=50)
     model_name = models.CharField(max_length=200)
-    os = models.CharField(max_length=30, choices=OS_CHOICES)
-    os_version = models.CharField(max_length=50)
+    os = models.CharField(max_length=30, choices=OS_CHOICES, blank=True)
+    os_version = models.CharField(max_length=50, blank=True)
     phone_number = models.CharField(max_length=50, null=True, blank=True)
 
     def __str__(self):
