@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% block title %}Apps{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Apps</h2>
+
+  <div class="list-group">
+    {% for content in content_list %}
+      <a href="{% url 'users:detail' user.username %}" class="list-group-item">
+        <h4 class="list-group-item-heading">{{ content.owner.app_title }}</h4>
+        {% comment %} <h5 class="list-group-item-heading">{{ content.os }}</h5>
+        <h5 class="list-group-item-heading">{{ content.tracking_url }}</h5>
+        <h5 class="list-group-item-heading">{{ content.impression_id }}</h5>
+        <h5 class="list-group-item-heading">{{ content.modified.url }}</h5> {% endcomment %}
+
+      </a>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}

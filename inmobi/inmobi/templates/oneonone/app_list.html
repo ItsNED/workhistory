@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% block title %}Apps{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Apps</h2>
+
+  <div class="list-group">
+    {% for app in app_list %}
+      <a href="{% url 'users:detail' user.username %}" class="list-group-item">
+        <h4 class="list-group-item-heading">{{ app.app_title }}</h4>
+        <h5 class="list-group-item-heading">{{ app.creator }}</h5>
+        {% for content in app.contents.all%}
+        <h6 class="list-group-item-heading">{{ content.tracking_url }}</h6>
+        {% endfor %}
+      </a>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}
